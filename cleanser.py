@@ -17,6 +17,7 @@ with open('projects_uncleansed.json', 'rb') as f:
         project = Project(project_dict)
         project.categories = list(categories_by_ref[project.reference]) if project.reference in categories_by_ref else []
         projects.append(project)
+    print "Total Number of Projects: %d" % (len(projects))
     o = open("projects.json", "w")
     o.write(json.dumps([p.__dict__ for p in projects]))
     o.close()
